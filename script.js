@@ -17,6 +17,7 @@ const openBtn = document.getElementById("openBtn");
 const letter = document.getElementById("letter");
 const closeLetter = document.getElementById("closeLetter");
 const okBtn = document.getElementById("okBtn");
+const bgMusic = document.getElementById("bgMusic");
 
 let W = 0, H = 0, DPR = 1;
 
@@ -33,6 +34,7 @@ let state = STATE.WAIT_START;
 let particles = [];
 let heartTargets = [];
 let formedProgress = 0;
+let musicStarted = false;
 
 const CONFIG = {
   // quantidade final (pontos do coração)
@@ -62,6 +64,23 @@ function lerp(a, b, t){ return a + (b - a) * t; }
 function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
 function easeInOutCubic(t){
   return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
+}
+
+function tryStartMusic(){
+  if (!bgMusic || musicStarted) return;
+
+  bgMusic.volume = 0.75;
+  const playAttempt = bgMusic.play();
+
+  if (playAttempt && typeof playAttempt.then === "function") {
+    playAttempt
+      .then(() => {
+        musicStarted = true;
+      })
+      .catch(() => {});
+  } else {
+    musicStarted = true;
+  }
 }
 
 // Resize
@@ -390,10 +409,15 @@ function closeLetterModal(){
 intro.addEventListener("click", () => {
   if (state !== STATE.WAIT_START) return;
 
+  tryStartMusic();
   intro.classList.add("hidden")
 
   setTimeout(start, 100)
 });
+
+window.addEventListener("load", tryStartMusic);
+window.addEventListener("pointerdown", tryStartMusic, { once: true });
+window.addEventListener("keydown", tryStartMusic, { once: true });
 
 openBtn.addEventListener("click", (e) => {
   e.stopPropagation();
