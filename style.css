@@ -142,6 +142,9 @@ body{
   background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
   box-shadow: var(--shadow);
   padding: 18px 18px 16px;
+  max-height: 80vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .letter-top{
@@ -194,6 +197,8 @@ body{
   border-radius: 16px;
   background: rgba(0,0,0,0.35);
   border: 1px solid rgba(255,255,255,0.1);
+  max-height: 55vh;
+  overflow-y: auto;
 }
 
 #letterText{
