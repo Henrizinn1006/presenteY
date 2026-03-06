@@ -203,7 +203,7 @@ function makeParticle(x, y, tx, ty){
 }
 
 // Desenhar mini coração (canvas)
-function drawMiniHeart(x,y,size){
+function drawMiniHeart(x,y,size,alpha){
 
   ctx.save()
 
@@ -211,10 +211,17 @@ function drawMiniHeart(x,y,size){
 
   ctx.scale(size,size)
 
-  ctx.shadowBlur = 10
-  ctx.shadowColor = "#ff4fd8"
+  ctx.globalAlpha = alpha
 
-  ctx.fillStyle = "#ff4fd8"
+  ctx.shadowBlur = 14
+  ctx.shadowColor = "#FF001E"
+
+  const gradient = ctx.createLinearGradient(-4, -4, 4, 4)
+  gradient.addColorStop(0, "#FF3B52")
+  gradient.addColorStop(0.55, "#FF001E")
+  gradient.addColorStop(1, "#8F0013")
+
+  ctx.fillStyle = gradient
 
   ctx.beginPath()
 
@@ -355,7 +362,7 @@ function animate(now){
     }
 
     // desenhar
-    drawMiniHeart(p.x, p.y, p.size)
+    drawMiniHeart(p.x, p.y, p.size, p.alpha)
   }
 
   // texto discreto “sombra” quando pronto (opcional)

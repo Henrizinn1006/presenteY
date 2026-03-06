@@ -1,15 +1,15 @@
 :root{
-  --bg1:#050712;
-  --bg2:#090B1C;
+  --bg1:#ED616F;
+  --bg2:#F2116C;
   --glass: rgba(255,255,255,.08);
   --glass2: rgba(255,255,255,.04);
   --stroke: rgba(255,255,255,.12);
   --txt: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.70);
 
-  --neon1:#7AA7FF;
-  --neon2:#FF4FD8;
-  --neon3:#6CFFB5;
+  --neon1:#F3DCB2;
+  --neon2:#FACB97;
+  --neon3:#F59982;
   --shadow: 0 20px 80px rgba(0,0,0,.55);
   --radius: 22px;
 }
@@ -22,9 +22,9 @@ body{
   color:var(--txt);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   background:
-    radial-gradient(1200px 700px at 10% 10%, rgba(108,255,181,.16), transparent 58%),
-    radial-gradient(900px 600px at 92% 20%, rgba(122,167,255,.14), transparent 60%),
-    radial-gradient(900px 600px at 60% 90%, rgba(255,79,216,.10), transparent 58%),
+    radial-gradient(1200px 700px at 10% 10%, rgba(243,220,178,.26), transparent 58%),
+    radial-gradient(900px 600px at 92% 20%, rgba(250,203,151,.20), transparent 60%),
+    radial-gradient(900px 600px at 60% 90%, rgba(245,153,130,.18), transparent 58%),
     linear-gradient(180deg, var(--bg1), var(--bg2));
 }
 
@@ -70,8 +70,8 @@ body{
   line-height:1.1;
   margin-bottom:10px;
   text-shadow:
-    0 0 18px rgba(122,167,255,.25),
-    0 0 18px rgba(255,79,216,.18);
+    0 0 18px rgba(245,153,130,.28),
+    0 0 18px rgba(242,17,108,.20);
 }
 
 .intro-sub{
@@ -115,8 +115,8 @@ body{
   box-shadow:
     0 0 0 1px rgba(255,255,255,.08) inset,
     0 18px 60px rgba(0,0,0,.45),
-    0 0 24px rgba(122,167,255,.20),
-    0 0 24px rgba(255,79,216,.16);
+    0 0 24px rgba(237,97,111,.24),
+    0 0 24px rgba(242,17,108,.20);
   transition: transform .15s ease, background .15s ease;
 }
 #openBtn:hover{ background: rgba(255,255,255,.12); }
@@ -237,8 +237,8 @@ body{
 .letter-actions button:active{ transform: scale(.99); }
 
 .letter-actions .primary{
-  border-color: rgba(122,167,255,.35);
-  box-shadow: 0 0 22px rgba(122,167,255,.18);
+  border-color: rgba(237,97,111,.40);
+  box-shadow: 0 0 22px rgba(242,17,108,.20);
 }
 
 /* Reduced motion */
